@@ -1,1 +1,0 @@
-The main entrance of the Application.

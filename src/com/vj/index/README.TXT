@@ -1,1 +1,1 @@
-UPPER CASE README TXT
+The solr index part
