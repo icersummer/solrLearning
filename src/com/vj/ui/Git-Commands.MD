@@ -13,6 +13,8 @@ To https://github.com/icersummer/solrLearning.git
 
 2.已存在的checkout的项目，拉取最新，修改，提交
 git pull
+$ git add .
+$ git commit -m 'commit README'
 
 3.建立分支，修改，提交
 

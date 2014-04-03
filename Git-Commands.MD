@@ -28,4 +28,6 @@ git checkout -- <filename>
 git fetch origin
 
 8.删除文件，提交
-
+$ git add .
+$ git commit -m 'commit README'
+$ git push https://github.com/icersummer/solrLearning.git master
