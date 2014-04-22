@@ -1,0 +1,1 @@
+The solr index part
