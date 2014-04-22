@@ -1,0 +1,1 @@
+The Solr search part.
