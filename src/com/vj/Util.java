@@ -1,13 +1,19 @@
 package com.vj;
 
+import java.io.IOException;
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 
 public class Util {
 
 	public static final int INDEX_SUCCESS = 1;
 
-	public static final int INDEX_FAIL = 1;
+	public static final int INDEX_FAIL = 0;
 
 	public static final String SOLR_SERVER_URL = "http://192.168.71.145:8080/solr";
 
@@ -34,5 +40,33 @@ public class Util {
 	public static final String FIELD_NAME = "fn_name";
 	public static final String FIELD_ID = "id";
 	
+	public static Set<String> fieldsSet = new TreeSet<String>();
+	static {
+		fieldsSet.add(  FIELD_MASTER_CARD );
+		fieldsSet.add( FIELD_EXPIRE_DATE  );
+		fieldsSet.add(  FIELD_BIRTHDAY );
+		fieldsSet.add(  FIELD_PASSWORD );
+		fieldsSet.add(  FIELD_USERNAME );
+		fieldsSet.add(  FIELD_EMAIL_ADDRESS );
+		fieldsSet.add(  FIELD_PHONE );
+		fieldsSet.add(   FIELD_ADDRESS);
+		fieldsSet.add(  FIELD_NAME );
+		fieldsSet.add(  FIELD_ID );
+	}
+	
+	public static void deleteAllExistingIndex() {
+		// TODO Auto-generated method stub
+		UpdateResponse ursp;
+		try {
+			ursp = SERVER.deleteByQuery("*:*");
+			SERVER.commit();
+			//TODO 0 is right ? 1 is wrong ?
+//		Assert.assertEquals("DELETE ALL FAILED!!", 0, ursp.getStatus());
+			System.out.println(String.format("delete status is %d", ursp.getStatus()));
+		} catch (SolrServerException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

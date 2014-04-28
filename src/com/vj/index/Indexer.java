@@ -28,14 +28,13 @@ public class Indexer {
 		return 0;
 	}
 
-	private int indexFile(String fileName) {
+	public int indexFile(String fileName) {
 		try {
 			String id = fileName;
 	
-			fileName = "src/com/vj/analyzeFakeNames/rawData/" + fileName;
+			fileName = "src/com/vj/index/data/" + fileName;
 			Properties p = new Properties();
 			p.load(new FileReader(fileName));
-			
 
 			String name = p.getProperty(Util.SCHEMA_NAME);
 			String address = p.getProperty(Util.SCHEMA_ADDRESS);
@@ -46,7 +45,6 @@ public class Indexer {
 			String Birthday = p.getProperty(Util.SCHEMA_BIRTHDAY);
 			String MasterCard = p.getProperty(Util.SCHEMA_MASTER_CARD);
 			String Expires = p.getProperty(Util.SCHEMA_EXPIRES); // TODO  date type
-			
 
 			SolrInputDocument doc = new SolrInputDocument();
 			doc.addField(Util.FIELD_ID, id);
@@ -62,11 +60,11 @@ public class Indexer {
 			
 
 			UpdateResponse ursp = server.add(doc);
+			server.commit();
 			
 			int status = ursp.getStatus(); // 0 : good.
 			
-			return status;
-			
+			return status;			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,6 +75,7 @@ public class Indexer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return 0;
 	}
 
