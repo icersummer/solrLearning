@@ -21,26 +21,40 @@ public class IndexSearcher {
 		return null;
 	}
 	
-	public void queryByKeyword (String keyword) throws SolrServerException {
+	/**
+	 * different cases: "", *, *abc, abc
+	 * @param keyword
+	 * @return
+	 * @throws SolrServerException
+	 */
+	public QueryResponse queryByKeyword (String keyword)  {
 		QueryResponse rsp = null;
-		if(keyword.equals("")){
-			//TODO  skip and warning ?
-		} else if(keyword.equals("*")) {
-			// query all
-			rsp = queryAll();
-		} else if(keyword.length() > 1 && keyword.startsWith("*")) {
-			//TODO query by leading *, which is not supported by Solr by default
-			
-		} else {
-			//TODO normal search
-			rsp = queryByNormal(keyword);
+		try {
+			if(keyword.equals("")){
+				//TODO  skip and warning ?
+				return null;
+			} else if(keyword.equals("*")) {
+				// query all
+				rsp = queryAll();
+			} else if(keyword.length() > 1 && keyword.startsWith("*")) {
+				//TODO query by leading *, which is not supported by Solr by default
+				return null;
+			} else {
+				//TODO normal search
+					rsp = queryByNormal(keyword);
+	
+			}
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return rsp;
 	}
 	
 	//	 <!-- field for the QueryParser to use when an explicit fieldname is absent -->
 	//	 <defaultSearchField>keywords_en</defaultSearchField>
 	private QueryResponse queryByNormal(String keyword) throws SolrServerException {
-		SolrQuery query = new SolrQuery("keywords_en:" + keyword);
+		SolrQuery query = new SolrQuery("fn_name:"+keyword);
 		QueryResponse rsp = server.query(query);
 		return rsp;
 	}
