@@ -17,7 +17,8 @@ public class Util {
 
 	public static final String SOLR_SERVER_URL = "http://192.168.71.145:8080/solr";
 
-	public static SolrServer SERVER = new HttpSolrServer(SOLR_SERVER_URL);
+//	public static SolrServer SERVER = new HttpSolrServer(SOLR_SERVER_URL);
+	public static final SolrServer SERVER = new HttpSolrServer("http://192.168.71.145:8080/solr");
 
 	public static final String SCHEMA_NAME = "name";
 	public static final String SCHEMA_ADDRESS = "address";
