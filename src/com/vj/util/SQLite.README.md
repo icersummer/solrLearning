@@ -24,3 +24,7 @@ SQLite的优势:
 - 虽然是轻量级数据库，但他支持最大 2tb 的单个库文件。
 
 - 快，无与伦比的快。经过实际测试，在几百万记录的情况下，SQLite的插入和查询速度和 mysql 不分上下，快于 sql server，10倍于 access （但这并不意味着它可以替代 sql server） 。
+
+SQLite Developer
+================
+The manage tool, official site: [link](http://www.sqlitedeveloper.com/)

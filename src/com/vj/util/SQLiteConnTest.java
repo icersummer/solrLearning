@@ -86,8 +86,8 @@ public class SQLiteConnTest {
       String tmp03 = "索引查询耗时：" + (System.currentTimeMillis() - startOfQueryWithIndex);
       buffer.append(tmp03 + "\n");
 
-      stmt.executeUpdate("drop table table001");
-      System.out.println("删除表table001成功!");
+//      stmt.executeUpdate("drop table table001");
+//      System.out.println("删除表table001成功!");
       conn.commit();
     } catch (ClassNotFoundException cnfe) {
       System.out.println("Can't find class for driver: " + cnfe.getMessage());
