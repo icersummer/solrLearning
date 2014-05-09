@@ -1,9 +1,8 @@
 package com.vj.entity;
 
-public class City {
+public class City extends JO {
 
-	long id;
-	String name;
-	String desc;
-	//TODO
+  String name;
+  String desc;
+  // TODO
 }

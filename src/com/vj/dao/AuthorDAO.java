@@ -6,13 +6,13 @@ import com.vj.entity.Author;
 
 public class AuthorDAO extends BaseDAO<Author> {
   
-  private AuthorDAO authorDAO = new AuthorDAO();
+  private static AuthorDAO authorDAO = new AuthorDAO();
   
   private AuthorDAO(){
     super();
   }
   
-  public AuthorDAO getDAO() {
+  public static AuthorDAO getDAO() {
     return authorDAO;
   }
 
@@ -20,9 +20,11 @@ public class AuthorDAO extends BaseDAO<Author> {
   public void save(Author e) {
     // TODO Auto-generated method stub
     try {
-      String sql = String.format("insert into e values (%s, %s)", e.name, e.gengre);
+      String sql = String.format("insert into author(name, gengre) values ('%s', '%s')", e.name, e.gengre);
       stmt = conn.createStatement();
       stmt.executeUpdate(sql);
+      conn.commit();
+      System.out.println(String.format(" Author %s save done.", e));
     } catch (SQLException e1) {
       // TODO Auto-generated catch block
       e1.printStackTrace();

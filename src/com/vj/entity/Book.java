@@ -1,10 +1,9 @@
 package com.vj.entity;
 
-public class Book {
+public class Book extends JO {
 
-	long id;
-	String isbn;
-	String writer;
-	String briefDesc;
-	//TODO
+  String isbn;
+  String writer;
+  String briefDesc;
+  // TODO
 }
