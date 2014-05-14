@@ -9,10 +9,15 @@ import java.util.Collection;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.logging.Logger;
 
+import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.SolrInputDocument;
 
 import com.vj.dao.AuthorDAO;
 import com.vj.dao.BookDAO;
@@ -23,6 +28,7 @@ import com.vj.search.IndexSearcher;
 
 public class CommandInterface {
 
+  private static final Logger LOG = Logger.getLogger(CommandInterface.class.toString());
   private BlockingQueue<JO> itemsToIndex = new ArrayBlockingQueue<JO>(20);
 //  java.util.concurrent.BlockingQueue<E>;
   
@@ -42,11 +48,13 @@ public class CommandInterface {
     // TODO Auto-generated method stub
     IndexThread it = new IndexThread(itemsToIndex);
     new Thread(it).start();
+    LOG.info("IndexThread has started.");
   }
 
   private void start() {
     try {
       out("Welcome to CommandInterface:");
+      LOG.info("Welcome to CommandInterface:");
       while (true) {
         printMenu();
 
@@ -86,6 +94,10 @@ public class CommandInterface {
           case "6":
             out("create 6 Books...");
             create6Books();
+            break;
+          case "7":
+            out("index 6 Books...");
+            index6Books();
           case "9":
             System.exit(0);
             break;
@@ -98,6 +110,49 @@ public class CommandInterface {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
+  }
+
+  private void index6Books() {
+    for (int i = 1; i <= 6; i++) {
+      try {
+        String path = "src/com/vj/index/data/book/" + String.format("%d.properties", i);
+        Properties p = new Properties();
+        p.load(new FileReader(path));
+        String title;
+        String writer;
+        String description;
+        String isbn;
+        String url;
+        title = p.getProperty("title");
+        writer = p.getProperty("writer");
+        description = p.getProperty("description").replaceAll("'", " ");
+        isbn = p.getProperty("isbn");
+        url = p.getProperty("url");
+        
+        SolrServer ss = Util.SERVER;
+        SolrInputDocument doc = new SolrInputDocument();
+        doc.addField("id", BookDAO.getDAO().getIdFromTitle(title));
+        doc.addField("book_title", title);
+        doc.addField("book_writer", writer);
+        doc.addField("book_description", description);
+        doc.addField("book_isbn", isbn);
+        doc.addField("book_url", url);
+        UpdateResponse rsp = ss.add(doc);
+        int status = rsp.getStatus();
+        ss.commit();
+        
+      } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (SolrServerException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+  
   }
 
   private void create6Books() {
@@ -137,6 +192,7 @@ public class CommandInterface {
     out("4. Create New Author");
     out("5. Create New Author (Random)");
     out("6. Create 6 Books (only run 1 time !)");
+    out("7. Index the 6 Books");
     out("8. TODO");
     out("9. Quit");
   }

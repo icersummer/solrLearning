@@ -51,5 +51,24 @@ public class BookDAO extends BaseDAO<Book> {
 
   }
 
+  public int getIdFromTitle(String title) {
+    // TODO Auto-generated method stub
+    int bid = 0;
+    try {
+      String sql = String.format("select id from Book where title = '%s'", title);
+      rs = conn.createStatement().executeQuery(sql);
+      if(rs.next()) {
+        bid = rs.getInt("id");
+      }
+      if(rs.next()) {
+        // !! should be only 1 result return !!
+        System.out.println("!! EXCEPTION ATTENTAION, MORE THAN ONE RECORD !!");
+      }
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    return bid;
+  }
 
 }
