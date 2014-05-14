@@ -1,0 +1,24 @@
+HTTP/1.1200OK
+{
+	"responseHeader": {
+		"status": 0,
+		"QTime": 1,
+		"params": {
+			"q": "*:*",
+			"rows": "1",
+			"wt": "json"
+		}
+	},
+	"response": {
+		"numFound": 11,
+		"start": 0,
+		"docs": [{
+			"id": "8",
+			"book_title": "Learning the UNIX Operating System, Fifth Edition",
+			"book_writer": "Jerry Peek, Grace Todino-Gonguet, John Strang",
+			"book_description": "If you are new to Unix, this concise book will tell you just what you need to get started and no more. Unix was one of the first operating systems written in C, a high-level programming language, and its natural portability and low price made it a popular choice among universities. Initially, two main dialects of Unix existed: one produced by AT&T known as System V, and one developed at UC Berkeley and known as BSD. In recent years, many other dialects have been created, including the highly popular Linux operating system and the new Mac OS X (a derivative of BSD).Learning the Unix Operating System is a handy book for someone just starting with Unix or Linux, and it s an ideal primer for Mac and PC users of the Internet who need to know a little about Unix on the systems they visit. The fifth edition is the most effective introduction to Unix in print, covering Internet usage for email, file transfers, web browsing, and many major and minor updates to help the reader navigate the ever-expanding capabilities of the operating system:    In response to the popularity of Linux, the book now focuses on the popular bash shell preferred by most Linux users.    Since the release of the fourth edition, the Internet and its many functions has become part of most computer user s lives. A new chapter explains how to use ftp, pine for mail, and offers useful knowledge on how to surf the web.    Today everyone is concerned about security. With this in mind, the author has included tips throughout the text on security basics, especially in the Internet and networking sections. The book includes a completely updated quick reference card to make it easier for the reader to access the key functions of the command line.",
+			"book_isbn": "0596002610 ",
+			"book_url": "http://www.amazon.com/Learning-Operating-System-Fifth-Edition/dp/0596002610/ref=sr_1_3?ie=UTF8&qid=1399864676&sr=8-3&keywords=unix"
+		}]
+	}
+}

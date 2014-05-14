@@ -1,0 +1,99 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<lst name="responseHeader">
+		<int name="status">0</int>
+		<int name="QTime">2</int>
+		<lst name="params">
+			<str name="q">book_title:Edition</str>
+			<str name="hl">true</str>
+			<str name="hl.fl">book_title</str>
+		</lst>
+	</lst>
+	<result name="response" numFound="2" start="0">
+		<doc>
+			<str name="book_description">If you are new to Unix, this concise book will tell you
+				just what you need to get started and no more. Unix was one of the
+				first operating systems written in C, a high-level programming
+				language, and its natural portability and low price made it a
+				popular choice among universities. Initially, two main dialects of
+				Unix existed: one produced by AT&amp;T known as System V, and one
+				developed at UC Berkeley and known as BSD. In recent years, many
+				other dialects have been created, including the highly popular Linux
+				operating system and the new Mac OS X (a derivative of BSD).Learning
+				the Unix Operating System is a handy book for someone just starting
+				with Unix or Linux, and it s an ideal primer for Mac and PC users of
+				the Internet who need to know a little about Unix on the systems
+				they visit. The fifth edition is the most effective introduction to
+				Unix in print, covering Internet usage for email, file transfers,
+				web browsing, and many major and minor updates to help the reader
+				navigate the ever-expanding capabilities of the operating system: In
+				response to the popularity of Linux, the book now focuses on the
+				popular bash shell preferred by most Linux users. Since the release
+				of the fourth edition, the Internet and its many functions has
+				become part of most computer user s lives. A new chapter explains
+				how to use ftp, pine for mail, and offers useful knowledge on how to
+				surf the web. Today everyone is concerned about security. With this
+				in mind, the author has included tips throughout the text on
+				security basics, especially in the Internet and networking sections.
+				The book includes a completely updated quick reference card to make
+				it easier for the reader to access the key functions of the command
+				line.
+			</str>
+			<str name="book_isbn">0596002610 </str>
+			<str name="book_title">Learning the UNIX Operating System, Fifth Edition</str>
+			<str name="book_url">http://www.amazon.com/Learning-Operating-System-Fifth-Edition/dp/0596002610/ref=sr_1_3?ie=UTF8&amp;qid=1399864676&amp;sr=8-3&amp;keywords=unix
+			</str>
+			<str name="book_writer">Jerry Peek, Grace Todino-Gonguet, John Strang</str>
+			<str name="id">8</str>
+		</doc>
+		<doc>
+			<str name="book_description">As an open operating system, Unix can be improved on by
+				anyone and everyone: individuals, companies, universities, and more.
+				As a result, the very nature of Unix has been altered over the years
+				by numerous extensions formulated in an assortment of versions.
+				Today, Unix encompasses everything from Sun s Solaris to Apple s Mac
+				OS X and more varieties of Linux than you can easily name.The latest
+				edition of this bestselling reference brings Unix into the 21st
+				century. It s been reworked to keep current with the broader state
+				of Unix in today s world and highlight the strengths of this
+				operating system in all its various flavors.Detailing all Unix
+				commands and options, the informative guide provides generous
+				descriptions and examples that put those commands in context. Here
+				are some of the new features you ll find in Unix in a Nutshell,
+				Fourth Edition: Solaris 10, the latest version of the SVR4-based
+				operating system, GNU/Linux, and Mac OS X; Bash shell (along with
+				the 1988 and 1993 versions of ksh); tsch shell (instead of the
+				original Berkeley csh); Package management programs, used for
+				program installation on popular GNU/Linux systems, Solaris and Mac
+				OS X; GNU Emacs Version 21; Introduction to source code management
+				systems; Concurrent versions system; Subversion version control
+				system; GDB debugger.As Unix has progressed, certain commands that
+				were once critical have fallen into disuse. To that end, the book
+				has also dropped material that is no longer relevant, keeping it
+				taut and current.If you re a Unix user or programmer, you ll
+				recognize the value of this complete, up-to-date Unix reference.
+				With chapter overviews, specific examples, and detailed command.
+			</str>
+			<str name="book_isbn">0596100299 </str>
+			<str name="book_title">Unix in a Nutshell, Fourth Edition</str>
+			<str name="book_url">http://www.amazon.com/Nutshell-Fourth-Edition-Arnold-Robbins/dp/0596100299/ref=sr_1_1?ie=UTF8&amp;qid=1399864676&amp;sr=8-1&amp;keywords=unix
+			</str>
+			<str name="book_writer">Arnold Robbins</str>
+			<str name="id">12</str>
+		</doc>
+	</result>
+	<lst name="highlighting">
+		<lst name="8">
+			<arr name="book_title">
+				<str>Learning the UNIX Operating System, Fifth
+					&lt;em&gt;Edition&lt;/em&gt;</str>
+			</arr>
+		</lst>
+		<lst name="12">
+			<arr name="book_title">
+				<str>Unix in a Nutshell, Fourth &lt;em&gt;Edition&lt;/em&gt;</str>
+			</arr>
+		</lst>
+	</lst>
+</response>
