@@ -23,6 +23,12 @@ public class Book extends JO {
   }
 
 
+  public Book() {
+    // TODO Auto-generated constructor stub
+    super();
+  }
+
+
   @Override
   public String toString() {
     // TODO Auto-generated method stub

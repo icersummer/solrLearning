@@ -55,7 +55,7 @@ public class BookDAO extends BaseDAO<Book> {
     // TODO Auto-generated method stub
     int bid = 0;
     try {
-      String sql = String.format("select id from Book where title = '%s'", title);
+      String sql = String.format("select id from Book where title = '%s' order by id desc", title);
       rs = conn.createStatement().executeQuery(sql);
       if(rs.next()) {
         bid = rs.getInt("id");

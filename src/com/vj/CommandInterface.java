@@ -98,6 +98,10 @@ public class CommandInterface {
           case "7":
             out("index 6 Books...");
             index6Books();
+            break;
+          case "8":
+            removeAllBookIndexes();
+            break;
           case "9":
             System.exit(0);
             break;
@@ -112,7 +116,20 @@ public class CommandInterface {
     }
   }
 
+  private void removeAllBookIndexes() {
+    // TODO Auto-generated method stub
+    SolrServer ss = Util.SERVER;
+    try {
+      UpdateResponse rsp = ss.deleteByQuery("book_title:*");
+      ss.commit();
+    } catch (SolrServerException | IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+  }
+
   private void index6Books() {
+    SolrServer ss = Util.SERVER;
     for (int i = 1; i <= 6; i++) {
       try {
         String path = "src/com/vj/index/data/book/" + String.format("%d.properties", i);
@@ -129,7 +146,6 @@ public class CommandInterface {
         isbn = p.getProperty("isbn");
         url = p.getProperty("url");
         
-        SolrServer ss = Util.SERVER;
         SolrInputDocument doc = new SolrInputDocument();
         doc.addField("id", BookDAO.getDAO().getIdFromTitle(title));
         doc.addField("book_title", title);
@@ -137,6 +153,9 @@ public class CommandInterface {
         doc.addField("book_description", description);
         doc.addField("book_isbn", isbn);
         doc.addField("book_url", url);
+        String className = Book.class.getName();
+        doc.addField("book_classname", className);
+        
         UpdateResponse rsp = ss.add(doc);
         int status = rsp.getStatus();
         ss.commit();
@@ -193,7 +212,7 @@ public class CommandInterface {
     out("5. Create New Author (Random)");
     out("6. Create 6 Books (only run 1 time !)");
     out("7. Index the 6 Books");
-    out("8. TODO");
+    out("8. Remove all Book indexes");
     out("9. Quit");
   }
 

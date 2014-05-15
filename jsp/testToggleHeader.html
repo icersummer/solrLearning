@@ -1,0 +1,84 @@
+<html>
+<Head>
+<title>test toggle header</title>
+<script>
+    function search(){
+        indexSearch();
+    }
+    function toggleHeader(id) {
+    	var cell = document.getElementById(id);
+    	var row = cell.parentNode;
+    	var table = row.parentNode;
+    	
+    	var myrows = table.getElementsByTagName("tr");
+    	for(var i=0; i<myrows.length; i++){
+    		var xx = myrows[i];
+    		var a = myrows[i].childNodes;
+    		var b = myrows[i].childNodes[0];
+    		var c = myrows[i].childNodes[0].id;
+    		//var d = myrows[i].childNodes[1];
+    		//var e = myrows[i].childNodes[1].id;
+    		if(myrows[i].childNodes[0].id != null && myrows[i].childNodes[0].id == id) {
+    			for(var j=i+1; j<myrows.length; j++){
+    				if(myrows[j].childNodes[0] !== undefined){// if tr tag is not empty
+    					if(myrows[j].childNodes[0].className != null &&
+    							(myrows[j].childNodes[0].className == "EXPANDABLE_td_class" || myrows[j].childNodes[0].className == "COLLAPSIBLETABLE_td_class" )){
+    					    break;
+    					}else{
+	    					if(myrows[j].style.display == 'none'){
+	    						//if (is.mac || is.gecko){
+	    						//	myrows[j].style.display = 'table-row';
+								//} else {
+		    						myrows[j].style.display = 'block';
+								//}
+	    					} else {
+	    						myrows[j].style.display= 'none';
+	    					}
+    					}
+    				}
+    			}
+    			break;
+    		}
+    	}
+    }
+</script>   
+</Head>
+<body>
+<table width="100%" align="center">
+	<tbody>
+		<!-- group 1 -->
+		<tr><td class="COLLAPSIBLETABLE_td_class" colspan="2" id="td_001">
+	                <a href="javascript:toggleHeader('td_001')">Click to toggle TD 001</a>
+	        </td></tr><!-- write this way , to not get TextNode as td.getchildNodes-->    
+	    <tr id='null'>
+	    	<td nowrap class='tbd'>
+	    		<a id='x' href="javascript:get('a')">Action</a>
+	    	</td>
+	    	<td title="" class="tbd">text/xml</td>
+	    </tr>    
+	    <tr id='null'>
+	    	<td nowrap class='tbd'>
+	    		<a id='x' href="javascript:get('b')">Action</a>
+	    	</td>
+	    	<td title="" class="tbd">text/xml</td>
+	    </tr>
+	    <!-- group 2 -->
+		<tr><td class="COLLAPSIBLETABLE_td_class" colspan="2" id="td_002">
+	                <a href="javascript:toggleHeader('td_002')">Click to toggle TD 002</a>
+	        </td></tr><!-- write this way , to not get TextNode as td.getchildNodes-->    
+	    <tr id='null'>
+	    	<td nowrap class='tbd'>
+	    		<a id='x' href="javascript:get('a')">Action 2</a>
+	    	</td>
+	    	<td title="" class="tbd">text/xml</td>
+	    </tr>    
+	    <tr id='null'>
+	    	<td nowrap class='tbd'>
+	    		<a id='x' href="javascript:get('b')">Action 2</a>
+	    	</td>
+	    	<td title="" class="tbd">text/xml</td>
+	    </tr>
+	</tbody>
+</table>
+</body>
+</html>
