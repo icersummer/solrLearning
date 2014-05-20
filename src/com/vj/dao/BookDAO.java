@@ -36,6 +36,9 @@ public class BookDAO extends BaseDAO<Book> {
     } catch (SQLException e1) {
       // TODO Auto-generated catch block
       e1.printStackTrace();
+    } finally {
+      safeClose(stmt);
+      safeClose(rs);
     }
   }
 
@@ -67,6 +70,9 @@ public class BookDAO extends BaseDAO<Book> {
     } catch (SQLException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
+    } finally {
+      safeClose(stmt);
+      safeClose(rs);
     }
     return bid;
   }
