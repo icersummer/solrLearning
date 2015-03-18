@@ -1,0 +1,29 @@
+<html>
+<body>
+<h1>倒計時(Countdown)：<span>10</span></h1>
+<script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var el = $("h1 span").first();
+		var i = 9;
+		
+		console.time("abc");
+		
+		var interval = setInterval(function(){
+			el.html(i);
+			i--;
+			console.log(i);
+			console.trace(); // used to track where the function is executed. Show in Console output: interval<() test.html (line 20)
+			console.time("test time");
+			console.timeEnd("test time");
+			if(i < 0){
+				clearInterval(interval);
+			}
+		}, 1000);
+		
+		console.dir(console);
+		console.timeEnd("abc");
+	});
+</script>
+</body>
+</html>

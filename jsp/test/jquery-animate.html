@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(".disappear").click(function(){
+		alert('011');
+		$("#row1").animate({"opacity": "0"}, 100);
+	});
+</script>
+</head>
+<body>
+<h1>Animate</h1>
+
+<div id="row1">
+	<div>
+		Welcome to Codility
+Thank you for signing up for a Codility Free Trial.
+Go ahead to https://codility.com and start creating Codility tests using examples of all our task types (programming, bug-fixing, SQL) and difficulty levels.
+	</div>
+</div>
+
+<h1 class="disappear">DISAPPEAR</h1>
+
+</body>
+</html>

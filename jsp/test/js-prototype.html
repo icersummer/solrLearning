@@ -1,0 +1,18 @@
+<html>
+<body>
+<h1>JS:<span>10</span></h1>
+<script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script>
+<script>
+	var Shape = function(width, height){
+		this.width = width;
+		this.height = height;
+	};
+	Shape.prototype.area = function(){
+		return this.width * this.height;
+	};
+	var shape = new Shape(20,30);
+	var aa = shape.area();
+	console.log('aa='+aa);
+</script>
+</body>
+</html>

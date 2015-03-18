@@ -26,6 +26,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.SolrQuery.ORDER;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -144,6 +145,22 @@ public class IndexSearchWithHighlightTest {
     }else{
         return null;
     }
+  }
+  
+  @Test 
+  public void testHighlight__(){
+	  SolrQuery q = new SolrQuery();
+	  
+	  String[] fields = {"id", "name"};
+	  q.setFields(fields);
+	  
+	  q.addHighlightField("name");
+	  q.setHighlight(true);
+	  q.setHighlightSimplePre("<em class=\"highlight\">");
+	  q.setHighlightSimplePost("</em>");
+	  q.setHighlightFragsize(10); // to show how many words in highlight
+	  
+	  q.addSortField("age", ORDER.desc);
   }
 
 }

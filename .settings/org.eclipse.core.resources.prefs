@@ -1,5 +1,7 @@
-#Wed May 07 16:43:21 CST 2014
+#Wed Aug 13 14:35:59 CST 2014
 eclipse.preferences.version=1
+encoding//jsp/test/jquery-countdown.html=UTF-8
+encoding//jsp/test/js-prototype.html=UTF-8
 encoding//src/com/vj/util/SQLite.README.md=UTF-8
 encoding//src/com/vj/util/SQLiteConnTest.java=UTF-8
 encoding/<project>=UTF-8
